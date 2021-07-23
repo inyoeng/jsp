@@ -10,7 +10,7 @@
 	<div align="center">
 		<div><h1>회 원 가 입</h1></div>
 		<div>
-			<form id="frm" name="frm" action="memberInsert.jsp" method="post"></form>
+			<form id="frm" name="frm" action="memberInsert.jsp" method="post">
 			<div>
 				<table border="1">
 					<tr>
@@ -32,12 +32,12 @@
 					<tr>
 						<th width="200">취 미</th>
 						<td width="300">
-							<input type="checkbox" id="hobby" name="hoddy" value="등산">등산
-							<input type="checkbox" id="hobby" name="hoddy" value="낚시">낚시
-							<input type="checkbox" id="hobby" name="hoddy" value="독서">독서
-							<input type="checkbox" id="hobby" name="hoddy" value="바둑">바둑
-							<input type="checkbox" id="hobby" name="hoddy" value="클라이밍">클라이밍
-							<input type="checkbox" id="hobby" name="hoddy" value="서핑">서핑
+							<input type="checkbox" id="hobby" name="hobby" value="등산">등산
+							<input type="checkbox" id="hobby" name="hobby" value="낚시">낚시
+							<input type="checkbox" id="hobby" name="hobby" value="독서">독서
+							<input type="checkbox" id="hobby" name="hobby" value="바둑">바둑
+							<input type="checkbox" id="hobby" name="hobby" value="클라이밍">클라이밍
+							<input type="checkbox" id="hobby" name="hobby" value="서핑">서핑
 						
 						</td>
 					</tr>
@@ -47,7 +47,8 @@
 				<input type="submit" value="회원가입">&nbsp;&nbsp;&nbsp;&nbsp;
 				<input type="reset" value="취   소">&nbsp;
 			</div>
-		</div>
+		</form>
+	</div>
 	</div>
 </body>
 </html>
