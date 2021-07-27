@@ -13,7 +13,7 @@ ___
   2. session 객체: 응답객체로서 요청시마다 생성되진 않는다. unique한 아이디 생성함. (->id.pw저장하기 좋음. )
 
   1. Request(요청)객체
-    1) getParameter: 값 1개로 넘어온거 읽음. 
+    1) getParameter: 값 1개로 넘어온거 읽음. => name 값 들어감. 모두 String으로 (intger는 변환 필요)
     2) getParameterValues: 배열객체 ex)selectionBox 불러옴.
   2. Response 객체
     1) SendRedirect: 두 번의 트래픽, 객체 전달이 힘들어서 잘 안씀. 
@@ -34,5 +34,16 @@ ___
     5)response
   
   
+  * ++Java db작업순서++ (==psudo code 작업 순서 언어로 나타냄.)
+
+1. VO(DTO) 객체 생성 => 기존은 테이블과 1 :  1로 매핑한다. (컬럼명을 변수명으로 쓴다.)테이블 하나당vo하나씩 join결과를 통해 vo가 확장될 경우 크게 또는 새로 만듦.
+2. DAO(DBMS 연결conn 객체)생성 :dao상속 등 여러 방법으로,,,
+3. Service Interface 객체 생성 (CRUD)
+4. Interface객체를 이용하여 serviceImpl객체(CRUD구현) 생성
+5. 보여줄 페이지 또는 조립하는 것 만들어 준다 (controller, command 만들어주기)
+5-1. command interface 만들고 
+5-2. init(), service()메서드 이용한 서블릿 클래스 만들어 줌. (Controller)
+5-3. controller안에선 hashMap사용.  HashMap<String, Command>
+5-4. 반복작업~~
   
 
