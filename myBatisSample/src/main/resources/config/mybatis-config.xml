@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<configuration><!-- 데이터 소스 연결정보 -->
+  <environments default="dev"><!-- 여기 두개이르믕 ㄴ바꿔도 ㄱㅊ -->
+    <environment id="dev">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED"> <!-- db 커넥션 풀(미리 연결되어있는 것)을 만듦. -->
+        <property name="driver" value="oracle.jdbc.driver.OracleDriver"/> <!-- property에서 가져옴 -->
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="username" value="demo"/>
+        <property name="password" value="demo"/>
+        <!-- 더 넣을 수 있음. -->
+      </dataSource>
+    </environment>
+  </environments>
+  
+  <mappers><!-- 연결되면 이거 해주세요~ -->
+    <mapper resource="mapper/member-map.xml"/> <!-- sql매퍼 쓰는 것. -->
+  </mappers>
+</configuration>

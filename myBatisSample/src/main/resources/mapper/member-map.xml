@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- mapper dtd -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="co.mico.prj.member.MemberMapper">
+	<select id="memberSelectList" resultType="co.mico.prj.member.vo.MemberVO">
+		select * from member
+	</select>
+	
+	<select id="memberSelect" resultType="co.mico.prj.member.vo.MemberVO">
+		select * from member where id= #{id}
+	</select>
+	
+	<insert id="memberInsert" parameterType="co.mico.prj.member.vo.MemberVO">
+		insert into member(id, password, name, phone, state) values(#{id}, #{password}, #{name}, #{phone},#{state})
+	</insert>
+	
+	<update id="memberUpdate" parameterType="co.mico.prj.member.vo.MemberVO">
+		update member set phone = #{phone} where id= #{id}
+	</update>
+	
+	<delete id="memberDelete" parameterType="co.mico.prj.member.vo.MemberVO">
+		update member set state = 'D' where id= #{id}
+	</delete>
+</mapper>
