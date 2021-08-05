@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.prj.board.service.BoardMapper">
+<!-- BoardMapper어노테이션에서  미구현된 sql을 적용해주면 된다. !! -->
+
+	<select id="snsSelectList" resultType="SnsVO">
+		select * from sns
+	</select>
+	
+	<!-- 별칭 쓰고싶어?: result map쓰기  -->
+	<resultMap type="SnsVO" id="SnsVoMap">
+		<id property="sNo" column="sNo"/>
+		<result property="cNo" column="kk"/>
+	</resultMap>
+	<!-- type aliasing 은 mybaits-Config(환경설정)에서 위치는 property 아래 -->
+	
+	
+	<select id="snsSelect" resultMap="SnsVoMap"><!-- vo가넘어오니까 알아서 parameter값 찾아옴 -->
+		select a.*, b.cno as kk, b.cname,b.cname,b.csubject 
+		from sns a left outer join comments b on (a.sno = b.sno)
+		where a.sno = #{sNo}
+	</select>
+	
+	<select id="commentsSelect" resultType="CommentsVO">
+		select * from comments where cno = #{cNo}
+	</select>
+	
+	<insert id="snsInsert" >
+		insert into sns values(#{sNO}, #{sWriter}, #{sTitle}, #{sContent}, #{saNo}, #{sDate} )
+	</insert>
+	
+	<update id="snsUpdate" parameterType="int">
+	</update>
+
+</mapper>

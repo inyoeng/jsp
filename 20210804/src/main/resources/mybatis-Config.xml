@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="/db.propertise">
+	</properties>
+	
+	<typeAliases>
+  		<typeAlias type="co.micol.prj.board.vo.SnsVO" alias="SnsVO"/>
+  		<typeAlias type="co.micol.prj.board.vo.CommentsVO" alias="CommentsVO"/>
+  </typeAliases>
+
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${user}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  
+  <mappers><!--실제 적용할 sql 메퍼들의 집합. -->
+  	<!-- 리소스로 쓸거라서 /써야. -->
+      <mapper resource="co/micol/prj/board/serviceImpl/Board-map.xml"/>
+      <mapper resource="co/micol/prj/member/serviceImpl/member-map.xml"/>
+    
+    <!-- 베이스 패키지까지만 넣어서 하나하나 매퍼만들지 말고 알아서 찾도록 만들기 ~ cf)예로하면 어노테이션만 됨-->
+    <!--  <package name="co.micol.prj"/>-->
+
+  </mappers>
+  
+</configuration>
