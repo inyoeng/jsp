@@ -22,7 +22,7 @@ public class FileDownload implements Command {
 		}else {
 			request.setAttribute("message", "파일 다운 실패!ㅠ^ㅠ");
 		}
-		return "filelist.do";
+		return "file/fileUploadResult";
 	}
 
 }

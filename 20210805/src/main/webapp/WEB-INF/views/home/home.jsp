@@ -12,6 +12,7 @@
 	<div>
 		<h5><a href="fileUploadForm.do">파일 업로드</a></h5>
 		<h5><a href="filelist.do">파일 목록 보기</a></h5>
+		<h5><a href="cyperText.do">일방향 암호문 보기</a></h5>
 	</div>
 </div>
 </body>

@@ -12,10 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.micol.prj.comm.Command;
+import co.micol.prj.command.CyperText;
 import co.micol.prj.command.FileDownload;
 import co.micol.prj.command.Filelist;
 import co.micol.prj.command.Fileupload;
 import co.micol.prj.command.Home;
+import co.micol.prj.command.Thumbnail;
 import co.micol.prj.command.fileUploadForm;
 
 
@@ -38,6 +40,8 @@ public class FrontController extends HttpServlet {
 		map.put("/fileUploadForm.do", new fileUploadForm());
 		map.put("/filelist.do", new Filelist());
 		map.put("/fileDownload.do", new FileDownload());
+		map.put("/thumbnail.do", new Thumbnail());
+		map.put("/cyperText.do", new CyperText());
 	}
 
 	
