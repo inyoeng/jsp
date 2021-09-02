@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="jdbcProp" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:global.properties" />
+	</bean>
+	<!-- dbcp  커넥션 풀 설정 : 커넥션 수 , 대기 시간 등 설정 가능 -->
+	
+	<!-- 등록하는 빈은 id값 아무렇게나 줘도 됨~ -->
+	<!-- <bean id="emp" class="com.yedam.app.Employees"/> -->
+	<context:component-scan base-package="com.yedam.app"></context:component-scan>
+	
+	<!-- 얘 대신 -->
+	<!-- MapperConfigurer setup for MyBatis Database Layer  with @MapperScan("boardMapper") 
+	in BoardMapper Interface xml의 sql문 실행할 매퍼 인터페이스 위치-->
+<!-- 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.yedam.app.impl" />
+	</bean> -->
+	<!-- 얘 쓸 수 있다. -->
+<!-- 	<mybatis-spring:scan base-package="com.yedam.app.impl" /> -->
+</beans>

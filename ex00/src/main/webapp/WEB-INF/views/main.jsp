@@ -9,7 +9,7 @@
 <body>
 main page
 <form action="login">
-	<input name='id'>
+	<input name='id' value="${param.id }">
 	<input name="pw">
 	<button>로그인</button>
 </form>
