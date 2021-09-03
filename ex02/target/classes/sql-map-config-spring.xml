@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<!-- result type별칭주가 -->
+	<typeAliases>
+		<!-- 패키지 전체에-> 그 뒤에 값들은 소문자만 써주면 된다.  -->
+		<package name="com.yedam.app"/>
+	</typeAliases>
+</configuration>

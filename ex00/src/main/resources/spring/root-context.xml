@@ -8,10 +8,10 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- dbcp  커넥션 풀 설정 : 커넥션 수 , 대기 시간 등 설정 가능 -->
 	<bean id="jdbcProp" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:global.properties" />
 	</bean>
-	<!-- dbcp  커넥션 풀 설정 : 커넥션 수 , 대기 시간 등 설정 가능 -->
 	
 	<!-- 등록하는 빈은 id값 아무렇게나 줘도 됨~ -->
 	<!-- <bean id="emp" class="com.yedam.app.Employees"/> -->
