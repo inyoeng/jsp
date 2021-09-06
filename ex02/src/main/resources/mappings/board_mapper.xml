@@ -3,11 +3,51 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- BoardMapper 인터페이스의 주소 적어줌  -->
 <mapper namespace="com.yedam.app.board.mapper.BoardMapper"> 
+	
+	<sql id="criteria">
+		   <trim prefix="(" suffix=") and" prefixOverrides="OR">
+	    	<foreach collection="typeArr" item="type">
+	    		<trim prefix="OR">
+	    			<choose>
+	    				<when test = "type =='T'.toString()">
+						    TITLE LIKE '%' || #{keyword} ||'%' 
+					    </when>
+					    <when test ="type =='C'.toString()">
+					    	CONTENT like '%'||#{keyword}||'%'
+					    </when>
+					    <when test="type =='W'.toString()">
+					    	 Writer like '%'||#{keyword}||'%'
+					    </when>
+	    			</choose>
+	    		</trim>
+	    	</foreach>
+	    </trim>
+		
+	</sql>
+	
+	
+		<!-- 전체 건수 구하기 -->
+	<select id="getTotalCount" resultType="int">
+		SELECT COUNT(*) FROM TBL_BOARD
+		where
+ 			<include refid="criteria"></include>
+ 			bno>0
+ 		
+	</select>
+	
 	<select id="getList" resultType="boardVO">
-		select BNO, TITLE, CONTENT, WRITER, REGDATE, UPDATEDATE
-		from TBL_BOARD
-		where BNO >0
-		order by BNO desc
+		
+	    SELECT * 
+	    FROM (SELECT  /* +INDEX_DESC(TBL_BOARD TBL_BOARD_PK)*/
+	    	 ROWNUM RN, BNO, TITLE, CONTENT, WRITER, REGDATE
+	   		FROM TBL_BOARD 
+	    <where>
+	 		<include refid="criteria"></include>
+		    <![CDATA[
+		    ROWNUM <= #{pageNum} * #{amount}]]> 
+	    </where>
+	    )
+		where RN> (#{pageNum}-1) * #{amount} 
 	</select>
 	
 	<!-- 파라미터 타입은 여기서는 생략 가능. -->

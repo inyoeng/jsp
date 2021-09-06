@@ -14,7 +14,8 @@
 <p></p>
 
      <form role="form" action="${pageContext.request.contextPath }/board/modify" method="post">
-     
+     	<%-- <input type="hidden" name="pageNum" value="${cri.pageNum } ">
+		<input type="hidden" name="amount" value="${cri.amount } "> --%>
      	<input value="${board.bno }" name="bno" type="hidden">
         <div class="form-group">
             <label>제목을 입력하세요</label>

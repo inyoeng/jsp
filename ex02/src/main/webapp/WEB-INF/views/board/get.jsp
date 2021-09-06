@@ -31,11 +31,19 @@
 	
 	<form action="delete" method="post">
 		<input value="${board.bno }" name="bno" type="hidden">
+	<%-- 	<input type="hidden" name="pageNum" value="${cri.pageNum } ">
+		<input type="hidden" name="amount" value="${cri.amount } "> --%>
+		
 		<button class="btn btn-default" >삭제하기</button>
 	</form>
 	<form action="update" method="get">
+<%-- 		<input type="hidden" name="pageNum" value="${cri.pageNum } ">
+		<input type="hidden" name="amount" value="${cri.amount } "> --%>
+		
 		<input value="${board.bno }" name="bno" type="hidden">
 		<button class="btn btn-default" >수정하기</button>
 	</form>
+	
+	<a class="btn btn-success" href="list?pageNum=${cri.pageNum }&amount=${cri.amount}">목록으로</a>
 	
 <%@ include file="/WEB-INF/views/includes/footer.jsp" %>
