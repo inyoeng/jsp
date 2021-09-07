@@ -2,7 +2,10 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	
+	<settings>
+		<!-- 오라클 컬럼이 first_name 를 VO firstName 처럼 카멜케이스로 변환 --> 
+		 <setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
 	<!-- result type별칭주가 -->
 	<typeAliases>
 		<!-- 패키지 전체에-> 그 뒤에 값들은 소문자만 써주면 된다.  -->

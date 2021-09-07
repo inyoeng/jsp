@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.app.board.mapper.ReplyMapper">
+
+	<select id="getList" resultType="ReplyVO">
+		SELECT * FROM TBL_REPLY WHERE BNO=#{bno}
+	</select>
+	<select id="readRep" resultType="com.yedam.app.board.domain.ReplyVO">
+		Select * from tbl_reply where rno = #{rno}
+	</select>
+	<insert id="insertRep">
+		INSERT INTO TBL_REPLY VALUES(seq_reply.nextval, #{bno},#{reply}, #{replyer},sysdate, null)
+	</insert>
+	<update id="updateRep">
+		UPDATE TBL_REPLY SET REPLY=#{reply}, REPLYER=#{replyer}, UPDATEDATE= sysdate WHERE RNO=#{rno}
+	</update>
+	<delete id="deleteRep">
+		DELETE FROM TBL_REPLY WHERE RNO=#{rno}
+	</delete>
+</mapper>

@@ -312,6 +312,9 @@
                             <a href="${pageContext.request.contextPath }/board/register"><i class="fa fa-edit fa-fw"></i> 글 등록하기</a>
                         </li>
                         <li>
+                            <a href="${pageContext.request.contextPath }/employee/list"><i class="fa fa-edit fa-fw"></i> 직원 정보</a>
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
